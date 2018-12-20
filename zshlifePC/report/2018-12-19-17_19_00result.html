@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>最生活PC端自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 14px; }
+table       { font-size: 16px; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>最生活PC端自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-12-19 17:19:00</p>
+<p class='attribute'><strong>Duration:</strong> 0:05:38.615000</p>
+<p class='attribute'><strong>Status:</strong> Pass 4 Failure 1 Error 2</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>start_AddThread.AddThread: 发帖</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_addThread: 发帖测试</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: 页面加载start time is: 1545211142.210
+nowhandle:CDwindow-B0E319CDC0172C2C11687254DEA07314
+登录成功,登录用户昵称是：mary1ivy
+Traceback (most recent call last):
+  File "F:\git_reposit\python_scripts\zshlifePC\test_case\start_AddThread.py", line 40, in test_addThread
+    driver.find_element_by_id("subject").send_keys(u"èªå¨åèæ¬æµè¯åå¸")
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 282, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 784, in find_element
+    'value': value})['value']
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 249, in execute
+    self.error_handler.check_response(response)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"id","selector":"subject"}
+  (Session info: chrome=70.0.3538.77)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>start_Forum.Forumtest: 论坛</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_Forum: 论坛列表测试</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: '今日'数字：3293
+'昨日'数字：4980
+'帖子'数字：20875452
+'会员'数字：11909208
+'欢迎新会员'内容：膜nyumen
+论坛大分类数：4
+大分类1的子分类数：9
+大分类2的子分类数：5
+大分类3的子分类数：3
+大分类4的子分类数：3
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>start_Forumlist.ForumList: 板块</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_ForumList: 板块列表测试</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        fail</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: æ¿ååè¡¨å è½½start time is: 1545211211.940
+å¨å±ç½®é¡¶è´´å­æ°ï¼9
+æ¬çæ¨èè´´å­æ°ï¼4
+ç¬¬äºé¡µæ¿åä¸»é¢æ°ï¼30
+ç­é¨æ¿åæ°ï¼12
+Traceback (most recent call last):
+  File "F:\git_reposit\python_scripts\zshlifePC\test_case\start_Forumlist.py", line 61, in test_ForumList
+    self.assertTrue(len(links)==2)
+AssertionError: False is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>start_indexCheck.ZshIndex: 首页</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_indexCheck: 首页空白页检测</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 首页加载start time is: 1545211249.469
+专题滑动图片数：5
+
+热门板块图标数：10
+
+专题推荐图片数：3
+
+专题推荐帖子链接数：20
+
+精彩活动列表活动数：6
+
+荣耀榜人数：32
+
+专题区域帖子数：5
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>start_Replypost.ReplyPost: 回帖</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='ft5.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_Replypost: 回帖测试（文字、表情、上传图片）</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        error</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.1: 页面加载start time is: 1545211293.767
+nowhandle:CDwindow-F3BEFB2FDDBCE045B366532681362778
+登录成功,登录用户昵称是：mary1ivy
+首页加载start time is: 1545211344.695
+nowhandle:CDwindow-F3BEFB2FDDBCE045B366532681362778
+Traceback (most recent call last):
+  File "F:\git_reposit\python_scripts\zshlifePC\test_case\start_Replypost.py", line 55, in test_Replypost
+    normal_list[0].find_element_by_class_name("xst").click()
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>start_ThreadDetail.ThreadDetail</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_Detail: 帖子详情测试</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: start time is: 1545211348.090
+帖子详情图片总数：19
+图片链接：https://img2.gdtnio.com/2017/10/24/657/800x491/6540083441.png
+图片链接：https://img1.gdtnio.com/2017/10/24/130/800x524/8106052647.png
+图片链接：https://img1.gdtnio.com/2017/10/24/969/783x516/6348680478.png
+图片链接：https://img1.gdtnio.com/2017/10/24/192/784x515/2471727449.png
+图片链接：https://img1.gdtnio.com/2017/10/24/28/772x459/5986631689.png
+图片链接：https://img1.gdtnio.com/2017/10/24/210/795x542/6385456623.png
+图片链接：https://img1.gdtnio.com/2017/10/24/59/788x537/2465890241.png
+图片链接：https://img2.gdtnio.com/2017/10/24/876/800x499/9852993513.png
+图片链接：https://img1.gdtnio.com/2017/10/24/249/715x534/9781223542.png
+图片链接：https://img2.gdtnio.com/2017/10/24/964/731x478/5827019202.png
+图片链接：https://img2.gdtnio.com/2017/10/24/761/749x508/3709877270.png
+图片链接：https://img2.gdtnio.com/2017/10/24/277/761x540/2002078078.png
+图片链接：https://img2.gdtnio.com/2017/10/24/319/800x508/9517920253.png
+图片链接：https://img1.gdtnio.com/2017/10/24/13/800x524/9600881020.png
+图片链接：https://img2.gdtnio.com/2017/10/24/878/800x508/2143720792.png
+图片链接：https://img1.gdtnio.com/2017/10/24/780/800x513/3242518321.png
+图片链接：https://img1.gdtnio.com/2017/10/24/843/800x541/1530498321.png
+图片链接：https://img2.gdtnio.com/2017/10/24/674/800x509/3925520207.png
+图片链接：https://img2.gdtnio.com/2017/10/24/946/800x506/8667049948.png
+评论统计数：26
+回复列表头像数：26
+板块推荐数：12
+全站推荐帖子数：11
+全站推荐图片链接：https://img1.gdtnio.com/2018/12/18/64/280x230/9577742148.jpg
+电梯直达的start time is: 1545211404.387
+电梯直达功能使用有问题
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>start_ZshLoginTest.ZshLogin: 最生活登录</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_QQlogin: 最生活QQ登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 页面加载start time is: 1545211428.533
+nowhandle:CDwindow-A91DA625BCC9683471E978A3DE6BED14
+登录成功,登录用户昵称是：mary1ivy
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>7</td>
+    <td>4</td>
+    <td>1</td>
+    <td>2</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
